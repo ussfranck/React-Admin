@@ -1,0 +1,10 @@
+{
+    "no-cors": false,
+    "read-only": false,
+    "static": "./public",
+    "body-parser": true,
+    "logger": true,
+    "middlewares": [
+      "./middlewares/content-range.js"
+    ]
+  }

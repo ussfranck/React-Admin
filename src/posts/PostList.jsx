@@ -26,7 +26,7 @@ export const PostList = (props) => (
   <List
     {...props}
     filters={<PostFilter />}
-    perPage={5}
+    perPage={5} // tu peux changer ca mais change aussi sur le composant <PostPagination />
     pagination={<PostPagination />}
   >
     <Datagrid>

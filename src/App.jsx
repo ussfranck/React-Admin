@@ -4,15 +4,19 @@ import { UserList, UserEdit, UserCreate, UserShow } from './users';
 import jsonServerProvider from 'ra-data-simple-rest';
 import Dashboard from './Dashboard';
 import authProvider from './authProvider';
+import styles from './App.module.css';
 
 const dataProvider = jsonServerProvider('http://localhost:3000');
 
 
 const CustomLoginPage = () => (
-  <Login
+  <section className={styles.loginWrapper}>
+    <Login
     backgroundImage="/background.jpg"  
     title="Admin Dashboard"
+    className={styles.loginComponent}
   />
+  </section>
 );
 
 const App = () => (

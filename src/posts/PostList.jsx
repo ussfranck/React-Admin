@@ -1,20 +1,33 @@
-import { List, Datagrid, TextField, ReferenceField, DateField, EditButton, Filter, TextInput, SelectInput, Pagination } from 'react-admin';
+import * as React from 'react';
+import { List, Datagrid, TextField, TextInput, Pagination, ReferenceField, DateField, EditButton } from 'react-admin';
+import { Filter } from 'react-admin';
 
 const PostFilter = (props) => (
   <Filter {...props}>
-    <TextInput label="Search" source="q" alwaysOn />
-    <SelectInput source="status" choices={[
-      { id: 'published', name: 'Published' },
-      { id: 'draft', name: 'Draft' },
-    ]} />
+    <TextInput 
+      label="Search by name" 
+      source="q" 
+      alwaysOn 
+    />
+    {/* <SelectInput 
+      label="Status" 
+      source="status" 
+      choices={[
+        { id: 'published', name: 'Published' },
+        { id: 'draft', name: 'Draft' },
+      ]} 
+    /> */}
   </Filter>
 );
 
+const PostPagination = props => <Pagination rowsPerPageOptions={[5]} {...props} />;
+
 export const PostList = (props) => (
-  <List {...props} 
+  <List
+    {...props}
     filters={<PostFilter />}
-    pagination={<Pagination rowsPerPageOptions={[10, 25, 50]} />}
-    perPage={10}
+    perPage={5}
+    pagination={<PostPagination />}
   >
     <Datagrid>
       <TextField source="title" />
